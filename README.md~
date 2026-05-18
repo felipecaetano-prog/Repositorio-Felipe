@@ -1,1 +1,59 @@
-# Repositorio-Felipe
+PROJETO TÉCNICO 
+ –  
+Agricultura de Precisão: Automação Inteligente para a Segurança Alimentar
+
+1.Introdução
+A agricultura moderna enfrenta um desafio sem precedentes: a necessidade de aumentar a produção de alimentos enquanto os recursos hídricos se tornam cada vez mais escassos. O desperdício de água em sistemas de irrigação convencionais, que operam por cronogramas fixos e ignoram a realidade do solo, é um dos maiores gargalos do setor. Neste contexto, o protótipo de Estação de Agricultura de Precisão surge como uma solução de baixo custo para transformar a gestão hídrica através da tecnologia.
+2.Problemática
+O principal obstáculo para a sustentabilidade agrícola é a falta de monitoramento técnico acessível. Atualmente, grandes quantidades de água são perdidas devido a:
+Irrigação Indiscriminada: Ativação do sistema mesmo quando o solo já possui umidade suficiente.
+Estresse Hídrico e Térmico: Atrasos na detecção de condições críticas que levam ao "Ponto de Murcha" das culturas.
+Falta de Contexto Ambiental: Desconsideração da luminosidade e temperatura, que influenciam diretamente na taxa de evapotranspiração das plantas.
+3.Solução Proposta
+A solução proposta rompe com o modelo de irrigação estática e baseada na intuição humana, introduzindo um sistema de monitoramento reativo e contextual. Em vez de aplicar recursos de forma uniforme, a estação atua como uma interface de tradução entre as necessidades biológicas da planta e a intervenção técnica, resolvendo o problema através de três pilares fundamentais:
+Interpretação da Demanda em Tempo Real: O sistema elimina a "irrigação cega" ao quantificar o estado hídrico do solo. A solução resolve o problema do desperdício ao garantir que a água seja aplicada somente quando a umidade atinge níveis críticos, respeitando a capacidade de absorção de cada cultura e evitando o apodrecimento radicular por excesso.
+Análise de Microclima para Proteção Preventiva: Ao cruzar dados de luminosidade e temperatura ambiente, o sistema não apenas monitora, mas antecipa riscos. Ele resolve o problema do estresse térmico ao alertar o produtor sobre horários de evapotranspiração intensa, permitindo decisões estratégicas sobre o melhor momento para a rega ou a necessidade de sombreamento temporário.
+Comunicação Direta e Biofeedback: A solução remove a barreira da invisibilidade dos sinais vegetais. Através de uma interface que alterna dados vitais, o sistema traduz parâmetros técnicos complexos em diagnósticos claros de "Saúde" ou "Anormalidade". Isso resolve a falta de consciência situacional, permitindo que o cuidador ou o sistema automatizado aja de forma cirúrgica, economizando tempo e recursos financeiros.
+4.arquitetura do sistema
+Programado em linguagem C, o sistema não é apenas um leitor de dados, mas um centro de decisão. A lógica implementada utiliza Mapeamento Analógico para converter sinais elétricos em porcentagens e graus compreensíveis.
+Algoritmos de Alerta: O sistema identifica anormalidades (como solo seco ou calor excessivo) e aciona avisos visuais imediatos no LCD.
+Escalabilidade: A arquitetura permite que, em uma segunda fase, o microcontrolador acione válvulas solenoides (via relés) para uma automação completa e autônoma da rega
+5. componentes do sistema
+A arquitetura do protótipo foi selecionada para equilibrar precisão sensorial, baixo consumo energético e facilidade de integração. Os componentes atuam como os órgãos sensoriais e o sistema nervoso da estação:
+5.1 Unidade de Processamento Central (Cérebro)
+Microcontrolador Arduino Uno R3: Escolhido por sua robustez e ampla capacidade de processar sinais analógicos e digitais simultaneamente. É o responsável por executar o algoritmo de tomada de decisão e gerenciar o fluxo de dados entre os sensores e a interface de saída.
+5.2 Matriz de Sensores (Entradas Sensoriais)
+Sensor de Umidade do Solo (Higrômetro): Utiliza o princípio da condutividade elétrica para mensurar a presença de água nas raízes. É o componente que fornece o dado base para o cálculo de eficiência hídrica.
+Sensor de Temperatura (TMP36): Um sensor de precisão centesimal que converte a energia térmica ambiente em sinais de voltagem linear, permitindo o monitoramento do estresse térmico da cultura.
+Sensor de Luminosidade (LDR): Um fotoresistor que mapeia a incidência de radiação solar, essencial para cruzar dados com a taxa de evaporação e determinar a necessidade de proteção luminosa.
+5.3 Interface de Comunicação e Atuação (Saídas)
+Display LCD 16x2 (via interface paralela): Atua como o painel de bordo do sistema, exibindo as variáveis processadas de forma intercalada e fornecendo o feedback visual imediato sobre o status de saúde da planta.
+Protoboard e Jumpers: Utilizados para a estruturação do barramento de dados e alimentação, garantindo a integridade das conexões elétricas sem a necessidade de soldagem em fase de prototipagem.
+Potenciômetro: Componente de ajuste analógico utilizado especificamente para o controle de contraste do display LCD, garantindo a legibilidade das informações em diferentes condições de iluminação externa
+5.4 Sistema de Alimentação Sustentável
+Painel Solar Fotovoltaico (5V - 10V): Atua como a fonte primária de energia, convertendo a radiação solar em eletricidade. No Tinkercad, você pode simular o comportamento de uma placa solar utilizando uma Bateria de 9V ou uma Fonte de Energia ajustável para representar a variação de voltagem durante o dia.
+Módulo Regulador de Tensão (TP4056 ou similar): Essencial para estabilizar a voltagem vinda da placa solar. Como a luz do sol oscila, este componente garante que o Arduino receba sempre 5V constantes, protegendo o microcontrolador de picos de energia.
+Bateria de Lítio (ex: 18650): Funciona como um reservatório de energia (banco de carga). A placa solar carrega a bateria durante o dia para que o sistema continue monitorando a planta e exibindo dados no LCD durante a noite.
+6.Prototipo
+6. Funcionamento e Validação do Protótipo (Simulação em Tinkercad)
+O funcionamento do sistema foi integralmente validado através da plataforma de simulação Tinkercad, que permitiu a montagem virtual do hardware e o teste em tempo real do código escrito em C/C++. A simulação foi dividida nas seguintes etapas operacionais:
+Dentro do ambiente virtual, o comportamento dos sensores é simulado através de controles interativos:
+Entrada de Dados: O usuário pode ajustar manualmente o nível de umidade do solo, a temperatura do TMP36 e a luminosidade do LDR no Tinkercad.
+Processamento: O algoritmo converte instantaneamente esses sinais analógicos em variáveis digitais, aplicando as fórmulas matemáticas de conversão para Graus Celsius e o mapeamento percentual (0-100%) para a umidade.
+
+tinkercad:https://www.tinkercad.com/things/1iCEArajo1l-surprising-turing-fulffy/editel?returnTo=https%3A%2F%2Fwww.tinkercad.com%2Fdashboard
+8. Resultados Esperados
+Com a implementação e operação da estação, os impactos diretos projetados são:
+Otimização de Recursos Hídricos: Redução estimada de até 30% no consumo de água através da irrigação baseada em dados reais, combatendo o desperdício.
+Aumento da Produtividade Agrícola: Mitigação do estresse hídrico e térmico, garantindo que as culturas permaneçam em sua zona de conforto biológico por mais tempo.
+Eficiência Energética Total: Operação com custo zero de energia da rede elétrica, validando o uso de sistemas fotovoltaicos em dispositivos IoT.
+Redução de Perdas por Fatores Climáticos: Resposta rápida a variações extremas de temperatura e luminosidade através dos alertas inteligentes.
+9. Aplicações
+Devido à sua natureza modular, autossustentável e de baixo custo, o sistema possui ampla aplicabilidade:
+Agricultura Familiar e Pequenos Produtores: Ferramenta acessível para profissionalizar o manejo de hortas e pomares.
+Paisagismo e Jardinagem Urbana: Automação de jardins verticais e vasos decorativos em apartamentos e escritórios (Home Office).
+Educação e Pesquisa: Estação didática para o ensino de botânica, eletrônica e programação em escolas e universidades.
+Estufas e Cultivos Protegidos: Monitoramento preciso de microclimas para plantas sensíveis ou de alto valor comercial (como orquídeas ou mudas).
+10. Conclusão
+O protótipo de Estação de Agricultura de Precisão consolida-se como uma resposta tecnológica viável e urgente para os desafios do nexo água-alimento-energia. Ao integrar sensores de baixo custo com uma lógica de processamento robusta em linguagem C, o projeto prova que a automação não precisa ser complexa ou cara para ser eficaz.
+A validação realizada via Tinkercad demonstrou que a arquitetura proposta é resiliente, capaz de operar de forma autônoma via energia solar e de comunicar estados biológicos complexos de forma simples ao usuário. Em última análise, este projeto não apenas soluciona um problema técnico de irrigação, mas serve como um modelo de como a tecnologia e a programação podem ser direcionadas para a preservação dos recursos naturais e a promoção da sustentabilidade global.
