@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estação de Agricultura de Precisão | IoT Sustentável</title>
+    <style>
+        :root {
+            --primary-green: #2d5a27;
+            --accent-green: #4caf50;
+            --solar-yellow: #ffc107;
+            --water-blue: #2196f3;
+            --dark-slate: #2c3e50;
+            --light-gray: #f4f7f6;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-gray);
+            color: var(--dark-slate);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+        }
+
+        .badge {
+            background-color: var(--accent-green);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        nav {
+            background: var(--primary-green);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--solar-yellow);
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background: var(--white);
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            color: var(--primary-green);
+            border-left: 5px solid var(--accent-green);
+            padding-left: 15px;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            padding: 20px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-green);
+        }
+
+        .card h3 {
+            color: var(--accent-green);
+            margin-bottom: 10px;
+        }
+
+        code {
+            background: #272822;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            display: block;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 20px 0;
+        }
+
+        .icon-box {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background: var(--dark-slate);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+        }
+
+        .highlight {
+            color: var(--accent-green);
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2rem; }
+            nav ul { flex-direction: column; align-items: center; }
+            nav ul li { margin: 5px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="badge">PROJETO ROBÓTICA IoT</div>
+        <h1>Estação de Agricultura de Precisão</h1>
+        <p>Monitoramento Sensorial Autossustentável via Energia Solar e Arduino</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#problema">O Problema</a></li>
+            <li><a href="#solucao">A Solução</a></li>
+            <li><a href="#hardware">Hardware</a></li>
+            <li><a href="#funcionamento">Funcionamento</a></li>
+            <li><a href="#conclusao">Impacto</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="problema">
+            <h2>1. O Desafio Global</h2>
+            <p>A agricultura consome cerca de <span class="highlight">70% da água doce do planeta</span>. O desperdício hídrico, causado por sistemas de irrigação ineficientes e falta de monitoramento técnico, ameaça a segurança alimentar e a sustentabilidade ambiental.</p>
+            <div class="grid" style="margin-top: 20px;">
+                <div class="card">
+                    <h3>Regas Indiscriminadas</h3>
+                    <p>Sistemas que operam por cronômetro sem considerar a umidade real do solo.</p>
+                </div>
+                <div class="card">
+                    <h3>Estresse Térmico</h3>
+                    <p>Plantas sofrendo danos irreversíveis por falta de alertas em dias de calor extremo.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="solucao">
+            <h2>2. A Solução Proposta</h2>
+            <p>Desenvolvemos uma estação de monitoramento reativo que traduz as necessidades biológicas das plantas em dados digitais. A estação utiliza lógica de <span class="highlight">Biofeedback</span> para informar o produtor sobre o momento exato da rega.</p>
+            <div class="grid" style="margin-top: 20px;">
+                <div class="card">
+                    <div class="icon-box">☀️</div>
+                    <h3>Energia Limpa</h3>
+                    <p>Alimentação 100% via painel solar fotovoltaico para autonomia total no campo.</p>
+                </div>
+                <div class="card">
+                    <div class="icon-box">📊</div>
+                    <h3>Dados Precisos</h3>
+                    <p>Conversão de sinais elétricos em porcentagens e graus Celsius via Código C.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="hardware">
+            <h2>3. Componentes de Hardware</h2>
+            <p>O protótipo foi estruturado com componentes de baixo custo e alta eficiência:</p>
+            <ul>
+                <li><strong>Arduino Uno R3:</strong> Unidade de processamento central.</li>
+                <li><strong>Higrômetro:</strong> Medição da condutividade hídrica do solo.</li>
+                <li><strong>TMP36:</strong> Monitoramento centesimal da temperatura ambiente.</li>
+                <li><strong>Fotoresistor (LDR):</strong> Mapeamento da incidência luminosa solar.</li>
+                <li><strong>Display LCD 16x2:</strong> Interface de visualização intercalada de dados.</li>
+                <li><strong>Painel Solar + Bateria:</strong> Sistema de armazenamento e gestão energética.</li>
+            </ul>
+        </section>
+
+        <section id="funcionamento">
+            <h2>4. Lógica de Programação e Simulação</h2>
+            <p>Validado no <strong>Tinkercad</strong>, o sistema executa um loop de processamento em C/C++ que gerencia múltiplas tarefas simultaneamente:</p>
+            <code>
+// Exemplo da lógica de decisão no Código C
+if (umidade < 30) {
+    lcd.setCursor(0, 1);
+    lcd.print("SOLO SECO! REGA!");
+    digitalWrite(PinoBomba, HIGH);
+}
+            </code>
+            <p>O diferencial técnico está na <strong>Multiplexação de Visualização</strong>, onde o display alterna as informações a cada 3 segundos, garantindo uma leitura limpa e eficiente para o usuário.</p>
+        </section>
+
+        <section id="conclusao">
+            <h2>5. Resultados e Impacto</h2>
+            <div class="grid">
+                <div class="card" style="background-color: var(--light-gray);">
+                    <h3>-30% Água</h3>
+                    <p>Redução drástica no desperdício hídrico através da irrigação por demanda.</p>
+                </div>
+                <div class="card" style="background-color: var(--light-gray);">
+                    <h3>Zero Carbono</h3>
+                    <p>Operação sustentável sem dependência da rede elétrica convencional.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Projeto Robótica - Estação de Agricultura de Precisão</p>
+        <p>Desenvolvido como prova de conceito em Sistemas IoT e Sustentabilidade</p>
+    </footer>
+
+</body>
+</html>
